@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.TextFlow?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+       <HBox prefHeight="67.0" prefWidth="600.0">
+          <children>
+              <GridPane>
+                  <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                 <children>
+                     <Label text="通讯类型" />
+                     <ComboBox fx:id="combo_type" editable="false" prefWidth="150.0" GridPane.columnIndex="1" />
+                     <Label text="通讯地址" GridPane.columnIndex="2" />
+                     <Label text="设备地址" GridPane.rowIndex="1" />
+                     <TextField fx:id="tx_deviceAddress" prefWidth="140" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     <TextField fx:id="tx_linkAddress" GridPane.columnIndex="3" />
+                     <Label text="发送次数" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                     <TextField fx:id="tx_size" onKeyReleased="#tx_size_onKeyReleased" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                     <Button fx:id="bt_send" mnemonicParsing="false" onAction="#bt_send_on_action" text="发送" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                    <Label text="间隔" GridPane.columnIndex="4" />
+                    <TextField fx:id="tx_split" GridPane.columnIndex="5" />
+                 </children>
+              </GridPane>
+          </children>
+       </HBox>
+       <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+          <tabs>
+              <Tab text="命令">
+                 <content>
+                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <children>
+                            <TableView fx:id="tb_cmdTable" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                    <TableColumn prefWidth="75.0" text="序号" />
+                                    <TableColumn prefWidth="70.0" text="名称" />
+                                    <TableColumn prefWidth="509.0" text="协议" />
+                                </columns>
+                           <contextMenu>
+                              <ContextMenu>
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#addCmd_onAction" text="添加命令" />
+                                  <MenuItem mnemonicParsing="false" onAction="#deleteCmd_onAction" text="删除命令" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu>
+                            </TableView>
+                        </children>
+                     </AnchorPane>
+                 </content>
+              </Tab>
+              <Tab text="消息">
+                 <content>
+                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <children>
+                            <TextFlow fx:id="tf_msg" layoutX="48.0" layoutY="6.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        </children>
+                     </AnchorPane>
+                 </content>
+              </Tab>
+          </tabs>
+       </TabPane>
+   </children>
+</VBox>
